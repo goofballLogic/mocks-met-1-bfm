@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{team} - Save team member</title>
+    </head>
+    <body>
+        Processing...
+        <div id="result"></div>
+        <script src="untemp.js"></script>
+        <script>
+
+            var result = document.querySelector( "#result" );
+            try {        
+            
+                var team = urlParams.team;
+                var name = urlParams.name;
+                var member = urlParams.member;
+                if ( !member ) {
+
+                    var memberMatch = members.find( x => x.name === name );
+                    if ( memberMatch ) throw new Error( "Member already exists: " + name );
+                    members.push( { name: name } );
+                
+                } else {
+                    
+                    var memberMatch = members.find( x => x.name === member );
+                    if ( !memberMatch ) throw new Error( "Member not found: " + member );
+                    memberMatch.name = name;
+                    
+                }
+                
+                instore( members );
+                location.href = "/team.html?team=" + team;
+
+            } catch( ex ) {
+            
+                result.innerHTML = "<h1>" + ex.message + "</h1>";
+                
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{team} - Saving scores</title>
+    </head>
+    <body>
+        Processing...
+        <div id="result"></div>
+        <script src="untemp.js"></script>
+        <script>
+
+            /* global urlParams, members, scores, instore, location */
+            var result = document.querySelector( "#result" );
+            try {        
+            
+                var what = urlParams.what;
+                var when = new Date( urlParams.when );
+                var points = Number( urlParams.points );
+                var description = urlParams.description;
+                var who = urlParams.who;
+                var memberMatch = members.find( x => x.name === who );
+                if ( !memberMatch ) throw new Error( "Member not found: " + who );
+                if ( urlParams.id ) {
+                
+                    var scoreMatch = scores.find( x => x.id === urlParams.id );
+                    if ( !scoreMatch ) throw new Error( "Score not found: " + urlParams.id );
+                    scoreMatch.who = who;
+                    scoreMatch.what = what;
+                    scoreMatch.when = when;
+                    scoreMatch.points = points;
+                    scoreMatch.description = description;
+
+                } else {
+
+                    var id = (Date.now()*Date.now()).toString().replace(/\D/g, "" );
+                    scores.push( { id: id, who: who, what: what, when: when, points: points, description: description } );
+                    
+                }
+                instore( scores );
+                location.href = "/scores.html?team=" + urlParams.team;
+                
+            } catch( ex ) {
+            
+                result.innerHTML = "<h1>" + ex.message + "</h1>";
+                
+            }
+
+        </script>
+    </body>
+</html>

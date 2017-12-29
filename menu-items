@@ -1,0 +1,47 @@
+<html>
+    <head>
+    
+        <meta charset="utf-8">
+        <title>Saving menu item</title>
+        
+    </head>
+    <body>
+    
+        Processing...
+        <div id="result"></div>
+        <script src="untemp.js"></script>
+        <script>
+
+            /* global urlParams, instore, location, menuItems */
+            var result = document.querySelector( "#result" );
+            try {        
+            
+                var what = urlParams.what;
+                var points = Number( urlParams.points ) || 0;
+                var criteria = urlParams.criteria;
+                if ( urlParams.id ) {
+                
+                    var menuItemMatch = menuItems.find( x => x.id === urlParams.id );
+                    if ( !menuItemMatch ) throw new Error( "Menu item not found: " + urlParams.id );
+                    menuItemMatch.what = what;
+                    menuItemMatch.points = points;
+                    menuItemMatch.criteria = criteria;
+
+                } else {
+
+                    var id = (Date.now()*Date.now()).toString().replace(/\D/g, "" );
+                    menuItems.push( { id: id, what: what, points: points, criteria: criteria } );
+                    
+                }
+                instore( menuItems );
+                location.href = "/score-menu.html?team=" + urlParams.team;
+                
+            } catch( ex ) {
+            
+                result.innerHTML = "<h1>" + ex.message + "</h1>";
+                
+            }
+
+        </script>
+    </body>
+</html>

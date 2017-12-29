@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.9/dialog-polyfill.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.9/dialog-polyfill.min.css"></script>
+	<link rel="stylesheet" href="../no.css">
+	
+</head>
+<body>
+
+    <main>
+	
+	    <nav>
+	        
+	        <a href="/">Home</a>
+	        
+	    </nav>
+	    <article data-conditional="login">
+	    
+	        <h1>Profile</h1>
+	        <section>
+	            
+	            <p>You are logged in as {login} (via {loginProvider})</p>
+	            <p>Not you? Want to log out? Click here: <a href="/signin/logout">Log out</a></p>
+	            
+	        </section>
+	   
+	    </article>
+	    <article data-conditional="!login">
+
+	    	<h1>Welcome to bitflipmetrics.com</h1>
+            <p>
+			    
+			    Hi! You haven't signed in to bitflip using any of the mechanisms below.
+			    
+			</p>
+			<a href="/signin/google" class="inline-block"><img src="../google-signin.png" /></a>
+			<p>
+			    We don't store any data belonging to you on our servers<sup>&dagger;</sup>, so you need to log in if you want to store your data outside this browser.
+			</p>
+			
+			<footer>
+			    
+			    <sup>&dagger;</sup>
+			    If you want to store your data on our servers check out <a href="/enterprise.html">http://www.bitflipmetrics.com/enterprise</a>
+			    
+			</footer>
+		
+		</article>
+		<article>
+		    
+		    <h1>Storage</h1>
+		    <p>You can choose to store your data in the locations shown below<sup>&dagger;</sup>. Some locations only become enabled once you've signed in.</p>
+		    <form action="/signin/storage">
+		        
+		        <label data-conditional="(loginProvider || '').toLowerCase()==='google'">
+		            
+		            <input type="radio" name="storage" value="google" checked="storage=='google'" />
+		            Google drive
+		            
+		        </label>
+		        <label data-conditional="(loginProvider || '').toLowerCase()!=='google'">
+		            
+		            <input type="radio" name="storage" value="google" disabled />
+		            Google drive
+		            
+		        </label>
+		        <label>
+		            
+		            <input type="radio" name="storage" value="dropbox" disabled checked="storage=='dropbox'" />
+		            Dropbox
+		            
+		        </label>
+		        <label>
+		            
+		            <input type="radio" name="storage" value="local" checked="storage=='local'" />
+		            Browser (local storage)
+		            
+		        </label>
+		        <input type="submit" value="Save" />
+		        
+		    </form>
+		    
+		</article>
+		
+	</main>
+	<script src="../untemp.js"></script>
+	
+</body>
+</html>

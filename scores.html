@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM - {team}</title>
+	<link href="no.css" rel="stylesheet" />
+	<template id="score-template">
+		
+		<tr class="score">
+			
+			<td class="when">{when}</td>
+			<td class="who">{who}</td>
+			<td class="what">{what}</td>
+			<td class="points">{points}</td>
+			<td class="description">{description}</td>
+			<td><a href="edit-score.html?team={team}&id={id}">Edit</a></td>
+
+		</tr>
+				
+	</template>
+
+</head>
+<body>
+
+	<main data-conditional="login || ( ( location.href = '/signin' ) && false)">
+		
+		<div>You are logged in as: {login} ({loginProvider}), and your data store is: {storageProvider} <a href="/signin">Profile/Log out</a></div>
+		<nav>
+			
+			<a href="/">Select a different team</a>
+			<a href="/home.html?team={team}">{team} home</a>
+
+		</nav>
+		<section class="team">
+				
+			<img template_src="{team-img}" />
+			<h3>Team</h3>
+			<h1>{team}</h1>
+			
+		</section>
+		<section class="scores">
+			
+			<nav>
+				
+				<a href="score-menu.html?team={team}">Scores menu</a>
+			
+			</nav>
+			<i>or</i>
+			<form class="add" action="scores">
+				
+				<input type="hidden" name="team" value="{team}" />
+				<label>
+					
+					Who
+					<select name="who" class="existing-member-select">
+						
+						<option></option>
+						
+					</select>
+					
+				</label>
+				<label>
+					
+					What
+					<input type="text" name="what" template_value="{chosen-what}" />
+					
+				</label>
+				<label>
+					
+					When
+					<input type="text" name="when" placeholder="YYYY-MM-DD or YYYY-MM-DD HH:MM" value="{now}" />
+					
+				</label>
+				<label>
+					
+					Points
+					<input type="number" name="points" template_value="{chosen-points}" />
+					
+				</label>
+				<label>
+					
+					Description
+					<textarea rows="10" name="description" value="{chosen-criteria}"></textarea>
+					
+				</label>
+				<button>Add score</button>
+				
+			</form>
+			<form>
+				
+				<h2>Filter scores</h2>
+				Who: 
+				<select name="member" class="existing-member-select">
+						
+					<option></option>
+						
+				</select>
+				
+			</form>
+			<table>
+				
+				<thead>
+					
+					<tr>
+						
+						<th>
+							
+							When
+							<a href="scores.html?team={team}&score-sort=when">sort</a>
+						
+						</th>
+						<th>
+							
+							Who?
+							<a href="scores.html?team={team}&score-sort=who">sort</a>
+						
+						</th>
+						<th>
+							
+							What
+							<a href="scores.html?team={team}&score-sort=what">sort</a>
+							
+						</th>
+						<th>
+							
+							Points
+							<a href="scores.html?team={team}&score-sort=points">sort</a>
+								
+						</th>
+						<th>
+							
+							Description
+							
+						</th>
+						<th></th>
+					</tr>
+					
+				</thead>
+				<tbody class="existing">
+					
+				</tbody>
+				
+			</table>
+			
+		</section>
+
+	</main>
+	<script src="untemp.js"></script>
+	
+</body>
+</html>

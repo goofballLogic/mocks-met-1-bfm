@@ -1,0 +1,21 @@
+<html>
+    <head>
+    
+        <meta charset="utf-8">
+        <title>Sign in with google</title>
+        
+    </head>
+    <body>
+    
+        Processing...
+        <div id="result"></div>
+        <script src="untemp.js"></script>
+        <script>
+
+            localStorage.setItem( "login", "yoohoo@gmail.com" );
+            localStorage.setItem( "login-provider", "Google" );
+            location.href = "/signin";
+
+        </script>
+    </body>
+</html>

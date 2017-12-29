@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM - Whirlybird</title>
+	<link href="no.css" rel="stylesheet" />
+	<template id="team-member-template">
+		
+		<form class="member" action="save-team-member">
+					
+			<input type="hidden" name="team" value="{team}" />
+			<input type="hidden" name="member" value="{name}" />
+			<input type="text" name="name" value="{name}" />
+			<input type="submit" value="Save changes" />
+			
+		</form>
+				
+	</template>
+
+</head>
+<body>
+
+	<main data-conditional="login || ( ( location.href = '/signin' ) && false)">
+		
+		<div>You are logged in as: {login} ({loginProvider}), and your data store is: {storageProvider} <a href="/signin">Profile/Log out</a></div>
+		<nav>
+
+			<a href="/">Select a different team</a>
+			<a href="/home.html?team={team}">{team} home</a>
+
+		</nav>
+		<section class="team">
+				
+			<img template_src="{team-img}" />
+			<h3>Team</h3>
+			<h1>{team}</h1>
+			
+		</section>
+		<section class="team-members">
+			
+			<form class="add" action="save-team-member">
+					
+				<input type="hidden" name="team" value="{team}" />
+				<input type="text" name="name" placeholder="Add a new team member..." />
+				<button>Add member</button>
+				
+			</form>
+			<div class="existing">
+				
+			</div>
+			<form class="remove" action="remove-team-member">
+				
+				<input type="hidden" name="team" value="{team}" />
+				<select name="member" class="existing-member-select">
+					
+					<option></option>
+					
+				</select>
+				<button>Remove this person from the team</button>
+				
+			</form>
+
+		</section>
+
+	</main>
+	<script src="untemp.js"></script>
+	
+</body>
+</html>

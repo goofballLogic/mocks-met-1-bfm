@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM - {team}</title>
+	<link href="no.css" rel="stylesheet" />
+	
+</head>
+<body>
+
+	<main>
+
+		<div>You are logged in as: {login} ({loginProvider}), and your data store is: {storageProvider} <a href="/signin">Profile/Log out</a></div>
+		<nav>
+			
+			<a href="/">Select a different team</a>
+			
+		</nav>
+		<section class="team">
+			
+		    <img template_src="{team-img}" />
+			<h3>Team</h3>
+			<h1 class="name">{team}</h1>
+			
+		</section>
+		<section class="dashboard">
+				
+			<nav>
+				
+			    <a href="team.html?team={team}">Team members</a>
+			    <a href="scores.html?team={team}">Scores</a>
+			    
+			</nav>
+			<div>
+				
+				<p>
+					<label class="inline">From<input type="text" /></label>
+					<label class="inline">To<input type="text" /></label>
+				</p>
+				<figure class="inline-block">
+					
+					Line graph plot of scores per team member over time going back six months.
+					
+				</figure>
+				<figure class="inline-block">
+					
+					Score leader, length of streak
+					
+				</figure>
+				
+			</div>
+		</section>
+		
+	</main>
+	<script src="untemp.js"></script>
+	
+</body>
+</html>

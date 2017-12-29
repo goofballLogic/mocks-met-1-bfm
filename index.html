@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.9/dialog-polyfill.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.9/dialog-polyfill.min.css"></script>
+	<link rel="stylesheet" href="no.css">
+	<template id="team-template">
+		
+		<a href="home.html?team={name}" class="team">
+			
+			<img src="{img}" />
+			<span class="name">{name}</span>
+			
+		</a>
+		
+	</template>
+	
+</head>
+<body>
+
+	<main class="splash" data-conditional="login || ( ( location.href = '/signin' ) && false)">
+		
+		<section class="intro">
+			
+			<div>You are logged in as: {login} ({loginProvider}), and your data store is: {storageProvider} <a href="/signin">Profile/Log out</a></div>
+			<h1>Which team?</h1>
+			<p>
+				Here you can set up a new team (just click the "Add a new team" button), or go to the home page of one of your existing teams by clicking on the team's button.
+			</p>
+
+		</section>
+		<section class="teams">
+	
+			<nav class="existing">
+
+			</nav>
+			<form action="teams">
+				
+				<label>
+				
+					Name	
+					<input type="text" name="name" />
+				
+				</label>
+				<label>
+					
+					Image (URL)
+					<input type="text" name="img" />
+					
+				</label>
+				<input type="submit" value="Add team" />
+				
+			</form>
+
+		</section>
+		
+	</main>
+	<script src="untemp.js"></script>
+	
+</body>
+</html>

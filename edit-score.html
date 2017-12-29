@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM - Whirlybird</title>
+	<link href="no.css" rel="stylesheet" />
+
+</head>
+<body>
+
+	<main>
+		
+		<div>You are logged in as: {login} ({loginProvider}), and your data store is: {storageProvider} <a href="/signin">Profile/Log out</a></div>		
+		<nav>
+
+			<a href="/">Select a different team</a>
+			<a href="/home.html?team={team}">{team} home</a>
+
+		</nav>
+		<section class="team">
+				
+			<img template_src="{team-img}" />
+			<h3>Team</h3>
+			<h1>{team}</h1>
+			
+		</section>
+		<section class="score">
+			
+			<form class="edit existing" action="scores">
+					
+				<input type="hidden" name="team" value="{team}" />
+				<input type="hidden" name="id" value="{id}" />
+				<label>
+					
+					Who
+					<select name="who" class="existing-member-select" data-select-value="{who}">
+						
+						<option></option>
+						
+					</select>
+					
+				</label>
+				<label>
+					
+					What
+					<input type="text" name="what" value="{what}" />
+					
+				</label>
+				<label>
+					
+					When
+					<input type="text" name="when" placeholder="YYYY-MM-DD or YYYY-MM-DD HH:MM" value="{when}" />
+					
+				</label>
+				<label>
+					
+					Points
+					<input type="number" name="points" template_value="{points}" />
+					
+				</label>
+				<label>
+					
+					Description
+					<textarea rows="10" name="description">{description}</textarea>
+					
+				</label>
+				<button>Save score</button>
+				
+			</form>
+
+		</section>
+
+	</main>
+	<script src="untemp.js"></script>
+	
+</body>
+</html>

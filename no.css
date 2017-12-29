@@ -1,0 +1,154 @@
+* {
+
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 0;
+
+}
+
+p {
+
+    margin-bottom: 5px;
+
+}
+
+html,
+body {
+
+    height: 100%;
+
+}
+
+body {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.show {
+    display: block;
+}
+
+.team img {
+    max-width: 200px;
+}
+
+.team {
+    display: block;
+}
+
+textarea {
+    height: 4em;
+    width: 20em;
+    vertical-align: top;
+}
+
+
+label {
+
+    display: block;
+
+}
+
+table,
+td,
+th {
+
+    border-collapse: collapse;
+    border: solid 1px silver;
+
+}
+
+select,
+input[type=text],
+input[type=number],
+textarea {
+
+    padding: 10px;
+    min-width: 200px;
+    background-color: #F7F7F7;
+    border: none;
+    border-bottom: solid 1px black;
+
+}
+
+select {
+
+    height: 3em;
+
+}
+
+a:hover {
+    background-color: #F7F7F7;
+}
+
+input[type=submit],
+input[type=cancel],
+button {
+
+    border: outset 1px silver;
+    border-radius: 5px;
+
+}
+
+input[type=submit]:hover,
+input[type=cancel]:hover,
+button:hover {
+
+    box-shadow: 0 0 2px 2px silver;
+
+}
+
+.inline {
+
+    display: inline;
+
+}
+
+.inline-block {
+
+    display: inline-block;
+    vertical-align: bottom;
+
+}
+
+figure {
+    box-shadow: 0 0 2px 2px silver;
+    width: 500px;
+    min-height: 300px;
+}
+
+figure+figure {
+    margin-left: 5px;
+}
+
+img,
+sup,
+a {
+    padding: 0;
+
+}
+
+a {
+
+    margin: 5px;
+
+}
+
+dialog {
+
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    
+}
+ul {
+    padding-left: 2em;
+}
+footer {
+    
+    position: absolute;
+    bottom: 0;
+    
+}

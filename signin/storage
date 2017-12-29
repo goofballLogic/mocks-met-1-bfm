@@ -1,0 +1,32 @@
+<html>
+    <head>
+    
+        <meta charset="utf-8">
+        <title>Saving storage preference</title>
+        
+    </head>
+    <body>
+    
+        Processing...
+        <div id="result"></div>
+        <script src="../untemp.js"></script>
+        <script>
+
+            /* global urlParams, instore, location */
+            var result = document.querySelector( "#result" );
+            try {        
+            
+                var selection = urlParams.storage;
+                if ( !selection ) throw new Error( "Please select a storage mechanism" );
+                localStorage.setItem( "storage", selection );
+                location.href="/signin";
+
+            } catch( ex ) {
+            
+                result.innerHTML = "<h1>" + ex.message + "</h1>";
+                
+            }
+
+        </script>
+    </body>
+</html>

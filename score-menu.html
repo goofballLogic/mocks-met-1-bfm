@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<title>MMAM - {team}</title>
+	<link href="no.css" rel="stylesheet" />
+	<template id="menu-item-template">
+		
+		<tr class="menu-item">
+			
+			<td>{what}</td>
+			<td>{points}</td>
+			<td>{criteria}</td>
+			<td><a href="scores.html?team={team}&chosen-menu-item={id}">Choose</a></td>
+
+		</tr>
+				
+	</template>
+	
+</head>
+<body>
+
+	<main>
+
+		<div>You are logged in as: {login} ({loginProvider}), and your data store is: {storageProvider} <a href="/signin">Profile/Log out</a></div>
+		<nav>
+			
+			<a href="/">Select a different team</a>
+			
+		</nav>
+		<section class="team">
+			
+		    <img template_src="{team-img}" />
+			<h3>Team</h3>
+			<h1 class="name">{team}</h1>
+			
+		</section>
+		<section class="menu-items">
+			
+			<form class="add" action="menu-items">
+				
+				<input type="hidden" name="team" value="{team}" />
+				<label>
+					
+					What action/behaviour justifies these points
+					<input name="what" type="text" placeholder="action/behaviour" />
+					
+				</label>
+				<label>
+					
+					How many points is it worth?
+					<input type="number" name="points" placeholder="points" />
+					
+				</label>
+				<label>
+					
+					Any other criteria
+					<textarea name="criteria" placeholder="criteria"></textarea>
+					
+				</label>
+				<button>Add menu item</button>
+				
+			</form>
+			<table>
+				
+				<thead>
+					
+					<tr>
+						
+						<th>
+							
+							What
+						
+						</th>
+						<th>
+							
+							Points
+						
+						</th>
+						<th>
+							
+							Criteria
+							
+						</th>
+						<th>
+							
+						</th>
+					</tr>
+					
+				</thead>
+				<tbody class="existing">
+					
+				</tbody>
+				
+			</table>
+			
+		</section>
+		
+	</main>
+	<script src="untemp.js"></script>
+	
+</body>
+</html>
